@@ -1,54 +1,29 @@
 <plugin>
-<groupId>org.apache.maven.plugins</groupId>
-<artifactId>maven-assembly-plugin</artifactId>
-<version>2.4.1</version>
-<configuration>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>1.6</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
 
-<!-- get all project dependencies -->
+						<configuration>
+							<filters>
+								<filter>
+									<artifact>*:*</artifact>
+									<excludes>
+										<exclude>META-INF/*.SF</exclude>
+										<exclude>META-INF/*.DSA</exclude>
+										<exclude>META-INF/*.RSA</exclude>
+										<exclude>log4j:log4j:jar:</exclude>
+									</excludes>
+								</filter>
+							</filters>
+							<!-- Additional configuration. -->
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 
-
-
-<descriptorRefs>
-<descriptorRef>jar-with-dependencies</descriptorRef>
-</descriptorRefs>
-
-<!-- MainClass in mainfest make a executable jar -->
-
-<archive>
-
-
-<manifest>
-
-<mainClass>com.fulfill.autofill.controller.Service</mainClass>
-
-</manifest>
-
-</archive>
-
-</configuration>
-
-
-<executions>
-
-
-<execution>
-
-<id>make-assembly</id>
-
-<!-- bind to the packaging phase -->
-
-
-<phase>package</phase>
-
-
-<goals>
-
-<goal>single</goal>
-
-</goals>
-
-</execution>
-
-</executions>
-
-</plugin>
