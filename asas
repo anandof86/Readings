@@ -1,0 +1,1 @@
+new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/config.txt")));
