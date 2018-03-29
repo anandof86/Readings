@@ -1,1 +1,3 @@
 new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/config.txt")));
+
+Exception in thread "main" org.springframework.beans.factory.xml.XmlBeanDefinitionStoreException: Line 11 in XML document from class path resource [applicationContext.xml] is invalid; nested exception is org.xml.sax.SAXParseException; lineNumber: 11; columnNumber: 74; cvc-elt.1.a: Cannot find the declaration of element 'beans'.
