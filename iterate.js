@@ -12,6 +12,13 @@ var data = [
       "trigger" : 564,
       "limit" : 976
     }
+  },
+  {
+    "data5" :{
+      "goal" : 23,
+      "trigger" : 54,
+      "limit" : 44
+    }
   }
 ]
 
@@ -23,7 +30,7 @@ function findvalue(data, value){
   for (key in data) {
       if (data.hasOwnProperty(key)) {
           if(data[key][value]){
-              return(
+              result.push(
                 {
                   "goal" :data[key][value].goal,
                   "trigger" :data[key][value].trigger,
@@ -33,13 +40,10 @@ function findvalue(data, value){
           }
       }
   }
+  return result
 }
+var final = []
 
-var result = []
+final = final.concat(findvalue(data, "data5"),findvalue(data, "data2"),findvalue(data, "data1"))
 
-var data1 = findvalue(data, "data2")
-var data2 = findvalue(data, "data1")
-
-result.push(data1)
-result.push(data2)
-console.log(result)
+console.log(final)
